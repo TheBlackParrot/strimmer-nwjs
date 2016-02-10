@@ -1,0 +1,93 @@
+.side_bar {
+	float: left;
+	width: 224px;
+	background-color: #222;
+	border-right: 1px solid #000;
+	height: calc(100% - 32px);
+}
+.current_track {
+	width: 100%;
+	background-color: #161616;
+	height: 272px;
+	border-bottom: 1px solid #000;
+	line-height: 14pt;
+}
+
+.current_track .art {
+	height: 224px;
+	width: 224px;
+	background: #223;
+}
+.current_track #album_art {
+	width: 224px;
+	max-height: 224px;
+	position: absolute;
+}
+.current_track .info {
+	height: 48px;
+	background-color: #161616;
+    z-index: 10;
+    position: relative;
+    transition: .5s;
+}
+.current_track .title, .current_track .artist {
+	display: inline-block;
+	margin-left: 8px;
+	width: calc(100% - 32px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.current_track .title {
+	font-size: 12pt;
+	font-weight: 500;
+	margin-top: 8px;
+}
+.current_track .artist {
+	text-transform: uppercase;
+	color: #999;
+	font-size: 7pt;
+}
+.current_track #slideout_button {
+	float: right;
+	line-height: 48px;
+	font-size: 16pt;
+	text-align: center;
+	width: 24px;
+	height: 48px;
+}
+.current_track #slideout_button #caret_sob {
+	line-height: 48px;
+	width: 24px;
+}
+.current_track .interaction_buttons {
+	display: none;
+	float: right;
+	font-size: 16pt;
+	padding-right: 8px;
+}
+.current_track .interaction_buttons .fa {
+	width: 32px;
+	line-height: 48px;
+	height: 48px;
+	text-align: center;
+}
+
+.lists .list-item {
+	display: block;
+	width: calc(100% - 16px);
+	padding: 6px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+.lists hr {
+	outline: 0;
+	border: 0;
+	border-bottom: 1px solid rgba(0,0,0,0.33);
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+.lists .fa {
+	margin-right: 4px;
+}

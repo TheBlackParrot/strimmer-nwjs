@@ -1,0 +1,7 @@
+{
+	"name":"strimmer",
+	"main":"index.html",
+	"window": {
+		"frame": false
+	}
+}

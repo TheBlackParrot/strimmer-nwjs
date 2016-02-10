@@ -1,0 +1,16 @@
+body {
+	font-family: "Roboto";
+	font-size: 9pt;
+	background-color: #2c2c2c;
+	color: #eee;
+}
+
+.wrapper {
+	border-top: 1px solid #000;
+	height: calc(100% - 33px);
+	width: 100%;
+	position: fixed;
+	overflow: hidden;
+	top: 32px;
+	left: 0;
+}

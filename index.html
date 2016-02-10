@@ -1,0 +1,98 @@
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/window.css">
+	<link rel="stylesheet" type="text/css" href="css/fonts.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<link rel="stylesheet" type="text/css" href="css/loadingOverlay.css">
+
+	<link rel="stylesheet" type="text/css" href="css/sideBar.css">
+	<link rel="stylesheet" type="text/css" href="css/mainArea.css">
+	<link rel="stylesheet" type="text/css" href="css/bottomBar.css">
+
+	<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+</head>
+
+<body>
+	<div class="titlebar">
+		<div class="title">
+			<img class="logo" src="images/logo.png" style="height: 24px;"/>
+		</div>
+		<div class="buttons">
+			<div id="min"><i class="fa fa-chevron-circle-down"></i></div>
+			<div id="max"><i class="fa fa-chevron-circle-up"></i></div>
+			<div id="close"><i class="fa fa-times-circle"></i></div>
+		</div>
+		<div class="user">
+			<span id="rank"></span> <span id="username"></span>
+		</div>
+	</div>
+
+	<div class="wrapper">
+		<div class="loading_overlay">
+			<div class="loader"></div>
+		</div>
+
+		<div class="side_bar">
+			<div class="current_track">
+				<div class="art" shown="1">
+					<img id="album_art" class="a1" src=""/>
+					<img id="album_art" class="a2" src=""/>
+				</div>
+				<div class="info">
+					<div id="slideout_button" active="0">
+						<i class="fa fa-caret-right" id="caret_sob"></i>
+					</div>
+					<div class="interaction_buttons">
+						<i class="fa fa-heart" id="fave" disabled="0"></i>
+						<i class="fa fa-plus-circle" id="queue" disabled="0"></i>
+						<i class="fa fa-trash" id="trash" disabled="0"></i>
+					</div>
+					<span class="title">Title</span>
+					<span class="artist">Artist</span>
+				</div>
+			</div>
+			<div class="lists">
+				<span class="list-item"><i class="fa fa-music fa-fw"></i> Library</span>
+				<hr/>
+				<span class="list-item"><i class="fa fa-user fa-fw"></i> My Music</span>
+				<span class="list-item"><i class="fa fa-heart fa-fw"></i> Favorites</span>
+				<hr/>
+				<span class="list-item"><i class="fa fa-list fa-fw"></i> Play Queue</span>
+				<span class="list-item"><i class="fa fa-history fa-fw"></i> Play History</span>
+			</div>
+		</div>
+
+		<div class="main_area">
+			<div class="main_table_wrapper">
+				<table class="main_table">
+					<tr>
+						<td>#</td>
+						<td>Title</td>
+						<td>Artist</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="bottom_bar">
+			<span id="elapsed">10:00</span>
+			<div id="bar">
+				<div id="bar_elapsed">
+				</div>
+			</div>
+			<span id="length">12:00</span>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/window.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/live.js"></script>
+	<script type="text/javascript" src="js/user.js"></script>
+	<script type="text/javascript" src="js/scrolling.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+.bottom_bar {
+	position: fixed;
+	bottom: 0;
+	height: 32px;
+	width: 100%;
+	line-height: 32px;
+	background: linear-gradient(#3f3f3f, #292929);
+	color: #eee;
+	text-align: center;
+	border-top: 1px solid #000;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1), 0px -1px 0px #000;
+}
+#elapsed, #length {
+	width: 64px;
+}
+#elapsed {
+	float: left;
+}
+#length {
+	float: right;
+}
+#bar {
+	display: inline-block;
+	height: 8px;
+	width: calc(100% - 128px);
+	margin-top: 12px;
+	background: linear-gradient(#161616, #222);
+	border-radius: 4px;
+	box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.85), 0px 1px 0px rgba(255, 255, 255, 0.1);
+}
+#bar #bar_elapsed {
+	width: 8%;
+	height: 100%;
+	background: linear-gradient(#B3E5FC, #4FC3F7);
+	border-radius: 4px;
+}

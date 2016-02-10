@@ -1,0 +1,48 @@
+.titlebar {
+	font-size: 14pt;
+	padding: 8px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	background: -webkit-linear-gradient(left, #111 0px, #222 284px);
+	color: #fff;
+	height: 24px;
+	line-height: 24px;
+	-webkit-app-region: drag;
+	font-family: "Roboto";
+}
+.titlebar .title {
+	float: left;
+}
+.titlebar .buttons {
+	float: right;
+    position: relative;
+    top: 1px;
+}
+.titlebar .buttons div {
+	display: inline-block;
+	margin-right: 1px;
+	margin-left: 1px;
+	-webkit-app-region: no-drag;
+	transition: .1s;
+}
+.titlebar .buttons div:hover {
+	transition: .1s;
+	color: #acf;
+}
+.titlebar .buttons div:active {
+	transition: .1s;
+	color: #ccc;
+}
+.titlebar .buttons div:last-child {
+	margin-right: 0px;
+}
+.titlebar .user {
+    float: right;
+    font-size: 11pt;
+    padding-right: 16px;
+}
+.titlebar .user #rank {
+	font-size: 7pt;
+	text-transform: uppercase;
+	color: #999;
+}
