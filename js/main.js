@@ -103,6 +103,37 @@ function updateTrackInfo(data, mode) {
 		$("#unfave, #fave").attr("id", "fave");
 	}
 
+	checkIfQueued(data.STRIMMER_ID, function(result) {
+		var element = $("#queue, #unqueue");
+		if(result == 1) {
+			console.log(data.STRIMMER_ID + " is queued");
+
+			canUserQueue("unqueue", data.STRIMMER_ID, function(result2) {
+				if(result2 == 1) {
+					console.log("user can unqueue");
+					element.attr("id", "unqueue");
+					element.attr("disabled", "0");
+				} else {
+					console.log("user cannot unqueue");
+					element.attr("disabled", "1");
+				}
+			});
+		} else {
+			console.log(data.STRIMMER_ID + " is not queued");
+
+			canUserQueue("queue", data.STRIMMER_ID, function(result2) {
+				if(result2 == 1) {
+					console.log("user can queue");
+					element.attr("id", "queue");
+					element.attr("disabled", "0");
+				} else {
+					console.log("user cannot queue");
+					element.attr("disabled", "1");
+				}
+			});	
+		}
+	});
+
 	var newsrc = "images/" + data.SERVICE + ".png";
 	if(newsrc != $(".current_track #service_icon").attr("src")) {
 		$(".current_track #service_icon").fadeOut(100, function(){
