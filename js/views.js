@@ -69,10 +69,8 @@ $(".list-item").on("click", function() {
 			break;
 
 		case "favorites":
-			var favorites = user_data.FAVORITES.split(";");
-
 			active_data = $.grep(library_data, function(row) {
-				return ((favorites.indexOf(row.STRIMMER_ID)+1) ? 1 : 0);
+				return ((favorite_data.indexOf(row.STRIMMER_ID)+1) ? 1 : 0);
 			});
 			break;
 

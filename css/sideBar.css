@@ -86,19 +86,25 @@
     transition: .1s;
 }
 
-#fave, #queue, #trash {
+#fave, #queue, #trash, #unfave, #unqueue {
 	transition: .1s;
 }
-#fave:hover {
+#fave:hover, #unfave {
 	color: #F06292;
 }
-#queue:hover {
+#unfave:hover {
+	color: #E91E63;
+}
+#queue:hover, #unqueue {
 	color: #4CAF50;
+}
+#unqueue:hover {
+	color: #388E3C;
 }
 #trash:hover {
 	color: #F44336;
 }
-.fa-disabled {
+.fa[disabled="1"] {
 	color: #fff !important;
 	opacity: 0.5;
 }

@@ -97,6 +97,12 @@ function updateTrackInfo(data, mode) {
 	$(".current_track .title").text(data.TITLE);
 	$(".current_track .artist").text(data.ARTIST);
 
+	if(favorite_data.indexOf(data.STRIMMER_ID)+1) {
+		$("#unfave, #fave").attr("id", "unfave");
+	} else {
+		$("#unfave, #fave").attr("id", "fave");
+	}
+
 	var newsrc = "images/" + data.SERVICE + ".png";
 	if(newsrc != $(".current_track #service_icon").attr("src")) {
 		$(".current_track #service_icon").fadeOut(100, function(){

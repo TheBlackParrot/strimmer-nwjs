@@ -28,6 +28,7 @@ getStrimmerUserData(function(data) {
 	checkIfDoneLoading();
 });
 
+var favorite_data;
 function setUserData(data) {
 	switch(data.RANK) {
 		case "4": $("#rank").text("Admin"); break;
@@ -38,4 +39,6 @@ function setUserData(data) {
 	}
 
 	$("#username").text(data.USERNAME);
+
+	favorite_data = data.FAVORITES.split(";");
 }
