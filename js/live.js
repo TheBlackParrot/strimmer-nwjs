@@ -66,6 +66,8 @@ function checkForTrackUpdate() {
 
 				updateTrackInfo(track, "live");
 			}
+			$(".playing_row").removeClass("playing_row");
+			$('.song_row[trackid="' + data + '"]').addClass("playing_row");
 		}
 		old_track = data;
 	});

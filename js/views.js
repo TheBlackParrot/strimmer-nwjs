@@ -28,6 +28,10 @@ function addTableRows(data) {
 		row.attr("trackid", entry.STRIMMER_ID);
 		row.addClass("song_row");
 
+		if(old_track == entry.STRIMMER_ID) {
+			row.addClass("playing_row");
+		}
+
 		table.append(row);
 	});
 }

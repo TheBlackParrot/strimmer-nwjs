@@ -9,7 +9,7 @@
 }
 .main_table_wrapper {
     overflow-y: scroll;
-    max-height: 100%;
+    max-height: calc(100% - 40px);
 }
 .main_table tr td {
 	padding: 5px;
@@ -42,4 +42,34 @@
     background: linear-gradient(#B3E5FC, #4FC3F7) !important;
     color: #000 !important;
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1), 0px 1px 0px rgba(255, 255, 255, 0.4);
+}
+.main_table .playing_row td {
+	font-weight: 700;
+	background-color: #444 !important;
+}
+
+.search {
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(#3f3f3f, #292929);
+    border-bottom: 1px solid #000;
+}
+.search .fa {
+	width: 16px;
+	font-size: 12pt;
+	color: #eee;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1), 0px -1px 0px #000;
+	margin-left: 10px;
+}
+.search input {
+	outline: 0;
+	border: 0;
+	padding: 4px;
+	margin: 8px;
+	background-color: #111;
+	color: #eee;
+	font-family: "Roboto";
+	border-radius: 8px;
+	width: calc(100% - 47px);
+	box-shadow: 0px -1px 0px rgba(0, 0, 0, 0.85), 0px 1px 0px rgba(255, 255, 255, 0.1);
 }
