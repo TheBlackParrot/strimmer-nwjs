@@ -21,6 +21,7 @@ function unixTimestamp() {
 	return Date.now() / 1000 | 0;
 }
 
+var time_offset = 0;
 function getStrimmerLibrary(callback) {
 	var url = settings.strimmer_host + 'fetch/tracks.php';
 	$.ajax({
@@ -33,9 +34,15 @@ function getStrimmerLibrary(callback) {
 		},
 		success: function(data) {
 			library_data = data.RETURN_DATA;
+
 			if(typeof callback === "function") {
 				callback(data.RETURN_DATA);
 			}
+
+			time_offset = unixTimestamp() - data.METADATA.TIMESTAMP;
+			console.log("Client is " + time_offset + " seconds off from the server");
+
+			last_new_check = unixTimestamp() - time_offset;
 		},
 		error: function() {
 			console.log("error");

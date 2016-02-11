@@ -21,7 +21,7 @@ function getStrimmerNowPlaying(verbosity,type,dataType,callback) {
 	});
 }
 
-function getStrimmerProgress(type,callback) {
+function getStrimmerProgress(type, callback) {
 	var url = settings.strimmer_host + 'fetch/progress.php?type=' + encodeURI(type);
 	//console.log(url);
 
@@ -34,6 +34,40 @@ function getStrimmerProgress(type,callback) {
 			withCredentials: false
 		},
 		success: function(data) {
+			if(typeof callback === "function") {
+				callback(data);
+			}
+		},
+		error: function() {
+			console.log("error");
+		}
+	});
+}
+
+function getRecentTracks(count_only, callback) {
+	if(typeof last_new_check === "undefined") {
+		return;
+	}
+
+	if(count_only) {
+		var url = settings.strimmer_host + 'fetch/recent.php?time=' + encodeURI(last_new_check-1) + '&count_only=1';
+		var dataType = "text";
+	} else {
+		var url = settings.strimmer_host + 'fetch/recent.php?time=' + encodeURI(last_new_check-1) + '&order=asc';
+		var dataType = "json";
+	}
+
+	$.ajax({
+		type: 'GET',
+		url: url,
+		contentType: 'text/plain',
+		dataType: 'json',
+		xhrFields: {
+			withCredentials: false
+		},
+		success: function(data) {
+			console.log(data);
+			console.log(last_new_check);
 			if(typeof callback === "function") {
 				callback(data);
 			}
@@ -82,12 +116,42 @@ function setRealtimeData() {
 	});
 }
 
-setInterval(function(){
+var last_new_check;
+
+function checkForNewTracks() {
+	getRecentTracks(1, function(data) {
+		var amount = parseInt(data);
+
+		if(amount > 0) {
+			getNewTracks();
+			return;
+		}
+
+		last_new_check = unixTimestamp() - time_offset;
+	});
+}
+
+function getNewTracks() {
+	getRecentTracks(0, function(data) {
+		data.RETURN_DATA.forEach(function(entry) {
+			library_data.unshift(entry);
+		});
+		addTableRows(data.RETURN_DATA, 1);
+
+		last_new_check = unixTimestamp() - time_offset;
+	});
+}
+
+setInterval(function() {
 	setRealtimeData();
 }, 1000);
 
-setInterval(function(){
+setInterval(function() {
 	checkForTrackUpdate();
 }, 5000);
+
+setInterval(function() {
+	checkForNewTracks();
+}, 10000);
 
 setRealtimeData();

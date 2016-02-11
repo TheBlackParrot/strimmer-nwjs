@@ -16,11 +16,16 @@ function addTableRows(data, inverse) {
 	var table = $(".main_table");
 	var rows = $(".main_table tr");
 
+	var pos = 0;
+
 	data.forEach(function(entry, i) {
 		var row = $('<tr></tr>');
 
 		if(inverse) {
-			var pos = 1;
+			if(isNaN(pos)) {
+				pos = 0; // what the hell
+			}
+			pos++;
 			position++;
 		} else {
 			var pos = (isNaN(position) ? 0 : position) + i + 1;
@@ -41,7 +46,7 @@ function addTableRows(data, inverse) {
 			$(".song_row td:first-child").each(function() {
 				$(this).text(parseInt($(this).text())+1);
 			});
-			
+
 			$(".main_table tr:first-child").after(row);
 		} else {
 			table.append(row);
