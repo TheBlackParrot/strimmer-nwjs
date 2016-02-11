@@ -8,7 +8,7 @@ $(".main_table_wrapper").scroll(function() {
 		if(!loading) {
 			loading = 1;
 
-			addTableRows(library_data.slice(position, (position + 100)));
+			addTableRows(active_data.slice(position, (position + 100)));
 			position += 100;
 			
 			loading = 0;

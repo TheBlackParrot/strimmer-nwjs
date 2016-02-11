@@ -27,7 +27,7 @@
 			<div id="close"><i class="fa fa-times-circle"></i></div>
 		</div>
 		<div class="user">
-			<span id="rank"></span> <span id="username"></span>
+			<span id="rank"></span> <span id="username">Not Authenticated</span>
 		</div>
 	</div>
 
@@ -41,28 +41,29 @@
 				<div class="art" shown="1">
 					<img id="album_art" class="a1" src=""/>
 					<img id="album_art" class="a2" src=""/>
-				</div>
-				<div class="info">
-					<div id="slideout_button" active="0">
-						<i class="fa fa-caret-right" id="caret_sob"></i>
-					</div>
 					<div class="interaction_buttons">
 						<i class="fa fa-heart" id="fave" disabled="0"></i>
 						<i class="fa fa-plus-circle" id="queue" disabled="0"></i>
 						<i class="fa fa-trash" id="trash" disabled="0"></i>
+					</div>
+					<img id="service_icon" src=""/>
+				</div>
+				<div class="info">
+					<div id="slideout_button" active="0">
+						<i class="fa fa-caret-right" id="caret_sob"></i>
 					</div>
 					<span class="title">Title</span>
 					<span class="artist">Artist</span>
 				</div>
 			</div>
 			<div class="lists">
-				<span class="list-item"><i class="fa fa-music fa-fw"></i> Library</span>
+				<span class="list-item active_row" view="library"><i class="fa fa-music fa-fw"></i> Library</span>
 				<hr/>
-				<span class="list-item"><i class="fa fa-user fa-fw"></i> My Music</span>
-				<span class="list-item"><i class="fa fa-heart fa-fw"></i> Favorites</span>
+				<span class="list-item" view="mymusic"><i class="fa fa-user fa-fw"></i> My Music</span>
+				<span class="list-item" view="favorites"><i class="fa fa-heart fa-fw"></i> Favorites</span>
 				<hr/>
-				<span class="list-item"><i class="fa fa-list fa-fw"></i> Play Queue</span>
-				<span class="list-item"><i class="fa fa-history fa-fw"></i> Play History</span>
+				<span class="list-item" view="queue"><i class="fa fa-list fa-fw"></i> Play Queue</span>
+				<span class="list-item" view="history"><i class="fa fa-history fa-fw"></i> Play History</span>
 			</div>
 		</div>
 
@@ -92,7 +93,11 @@
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/live.js"></script>
 	<script type="text/javascript" src="js/user.js"></script>
+	<script type="text/javascript" src="js/views.js"></script>
 	<script type="text/javascript" src="js/scrolling.js"></script>
+
+	<script type="text/javascript" src="js/viewQueue.js"></script>
+	<script type="text/javascript" src="js/viewHistory.js"></script>
 </body>
 
 </html>

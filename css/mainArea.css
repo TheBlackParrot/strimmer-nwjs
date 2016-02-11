@@ -38,7 +38,8 @@
 .main_table tr td:nth-child(3) {
 	width: 30%;
 }
-.main_table .active_row td {
-	background-color: #4FC3F7 !important;
-	color: #000 !important;
+.main_table .active_row td, .active_row {
+    background: linear-gradient(#B3E5FC, #4FC3F7) !important;
+    color: #000 !important;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1), 0px 1px 0px rgba(255, 255, 255, 0.4);
 }
