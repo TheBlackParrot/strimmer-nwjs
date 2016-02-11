@@ -1,4 +1,5 @@
 <link rel="stylesheet" type="text/css" href="dialog/add_track.css">
+<script type="text/javascript" src="dialog/js/add_track.js"></script>
 
 <div class="dialog_titlebar">
 	<div class="title">Add Track</div>
@@ -10,56 +11,66 @@
 </div>
 
 <div class="add_track_tabs" active="">
-	<div class="tab" service="SDCL" style="background: linear-gradient(rgba(255,255,255,0.33), transparent) #f70;">
+	<div class="tab" service="soundcloud" style="background: linear-gradient(rgba(255,255,255,0.42), transparent) #f70;", bg="#f70">
 		<img src="images/SDCL.png"/>
 	</div>
-	<div class="tab" service="YTUB" style="background: linear-gradient(rgba(255,255,255,0.33), transparent) #b00;">
+	<div class="tab" service="youtube" style="background: linear-gradient(rgba(255,255,255,0.42), transparent) #b00;" bg="#b00">
 		<img src="images/YTUB.png"/>
 	</div>
-	<div class="tab" service="JMND" style="background: linear-gradient(rgba(255,255,255,0.33), transparent) #ee2b5c;">
+	<div class="tab" service="jamendo" style="background: linear-gradient(rgba(255,255,255,0.42), transparent) #ee2b5c;" bg="#ee2b5c">
 		<img src="images/JMND.png"/>
 	</div>
-	<div class="tab" service="MODA" style="background: linear-gradient(rgba(255,255,255,0.33), transparent) #5b6868;">
+	<div class="tab" service="modarchive" style="background: linear-gradient(rgba(255,255,255,0.42), transparent) #5b6868;" bg="#5b6868">
 		<img src="images/MODA-L.png"/>
 	</div>
-	<div class="tab" service="URL" style="background: linear-gradient(rgba(255,255,255,0.33), transparent) #999;">
+	<div class="tab" service="URL" style="background: linear-gradient(rgba(255,255,255,0.42), transparent) #999;" bg="#999">
 		<img src="images/URL.png"/>
 	</div>
 </div>
 
-<div class="dialog_content" tab="SDCL" style="display: none;">
+<div class="dialog_content" tab="soundcloud" style="display: none;">
 	<div class="field">
-		<span class="label">Track URL</span>
-		<input class="url_input"></input>
+		<form class="soundcloud_form">
+			<span class="label">Track URL</span>
+			<input class="url_input" name="url"></input>
+		</form>
 	</div>
 </div>
-<div class="dialog_content" tab="YTUB" style="display: none;">
+<div class="dialog_content" tab="youtube" style="display: none;">
 	<div class="field">
-		<span class="label">Track URL</span>
-		<input class="url_input"></input>
+		<form class="youtube_form">
+			<span class="label">Track URL</span>
+			<input class="url_input" name="url"></input>
+		</form>
 	</div>
 </div>
-<div class="dialog_content" tab="JMND" style="display: none;">
+<div class="dialog_content" tab="jamendo" style="display: none;">
 	<div class="field">
-		<span class="label">Track URL</span>
-		<input class="url_input"></input>
+		<form class="jamendo_form">
+			<span class="label">Track URL</span>
+			<input class="url_input" name="url"></input>
+		</form>
 	</div>
 </div>
-<div class="dialog_content" tab="MODA" style="display: none;">
+<div class="dialog_content" tab="modarchive" style="display: none;">
 	<div class="field">
-		<span class="label">Track URL</span>
-		<input class="url_input"></input>
+		<form class="modarchive_form">
+			<span class="label">Track URL</span>
+			<input class="url_input" name="url"></input>
+		</form>
 	</div>
 </div>
 <div class="dialog_content" tab="URL" style="">
-	<div class="field">
-		<span class="label">Track URL</span>
-		<input class="url_input"></input>
-	</div>
-	<div class="field">
-		<span class="label">Art URL</span>
-		<input class="url_input_art"></input>
-	</div>
+	<form class="URL_form">
+		<div class="field">
+			<span class="label">Track URL</span>
+			<input class="url_input" name="url"></input>
+		</div>
+		<div class="field">
+			<span class="label">Art URL</span>
+			<input class="url_input_art" name="artwork_url"></input>
+		</div>
+	</form>
 </div>
 
 <div class="dialog_buttons">

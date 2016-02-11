@@ -12,14 +12,19 @@ function clearList() {
 	});
 }
 
-function addTableRows(data) {
+function addTableRows(data, inverse) {
 	var table = $(".main_table");
 	var rows = $(".main_table tr");
 
 	data.forEach(function(entry, i) {
 		var row = $('<tr></tr>');
 
-		var pos = (isNaN(position) ? 0 : position) + i + 1;
+		if(inverse) {
+			var pos = 1;
+			position++;
+		} else {
+			var pos = (isNaN(position) ? 0 : position) + i + 1;
+		}
 
 		row.append("<td>" + pos + "</td>");
 		row.append("<td>" + entry.TITLE + "</td>");
@@ -32,7 +37,15 @@ function addTableRows(data) {
 			row.addClass("playing_row");
 		}
 
-		table.append(row);
+		if(inverse) {
+			$(".song_row td:first-child").each(function() {
+				$(this).text(parseInt($(this).text())+1);
+			});
+			
+			$(".main_table tr:first-child").after(row);
+		} else {
+			table.append(row);
+		}
 	});
 }
 

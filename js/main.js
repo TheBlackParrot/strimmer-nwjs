@@ -17,6 +17,10 @@ function isValidUrl(str) {
 	return regexp.test(str);  
 }
 
+function unixTimestamp() {
+	return Date.now() / 1000 | 0;
+}
+
 function getStrimmerLibrary(callback) {
 	var url = settings.strimmer_host + 'fetch/tracks.php';
 	$.ajax({
