@@ -1,0 +1,90 @@
+.dialog_overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.66);
+	display: none;
+	z-index: 999;
+}
+
+.dialog {
+	min-width: 300px;
+	background-color: #333;
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+	display: none;
+}
+
+.dialog_titlebar {
+	font-size: 11pt;
+	padding: 8px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	background: #222;
+	color: #fff;
+	height: 24px;
+	line-height: 24px;
+	border-bottom: 1px solid #000;
+}
+.dialog_titlebar .title {
+	float: left;
+}
+.dialog_titlebar .buttons {
+	font-size: 14pt;
+	float: right;
+    position: relative;
+    top: 2px;
+}
+.dialog_titlebar .buttons div {
+	display: inline-block;
+	margin-right: 1px;
+	margin-left: 1px;
+	-webkit-app-region: no-drag;
+	transition: .1s;
+}
+.dialog_titlebar .buttons div:hover {
+	transition: .1s;
+	color: #acf;
+}
+.dialog_titlebar .buttons div:active {
+	transition: .1s;
+	color: #ccc;
+}
+.dialog_titlebar .buttons div:last-child {
+	margin-right: 0px;
+}
+
+.dialog_buttons {
+	padding: 16px;
+	width: calc(100% - 32px);
+	text-align: right;
+}
+.dialog_buttons .dialog_button {
+	text-align: center;
+	width: 80px;
+	padding: 8px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-radius: 4px;
+	box-shadow: 0px 0px 0px 1px rgba(255, 255, 255, 0.2), 0px 0px 0px 2px rgba(0, 0, 0, 0.4);
+	background: linear-gradient(#3f3f3f, #292929);
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1), 0px -1px 0px #000;
+}
+.dialog_buttons .dialog_button:hover {
+	background: linear-gradient(#434343, #2d2d2d);
+}
+.dialog_buttons .dialog_button:active {
+	background: linear-gradient(#292929, #3f3f3f);
+}
+
+.dialog_content {
+	width: calc(100% - 32px);
+	max-width: calc(100% - 32px);
+	padding: 16px;
+}

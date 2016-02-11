@@ -47,7 +47,7 @@ function getStrimmerProgress(type,callback) {
 var old_track;
 
 function checkForTrackUpdate() {
-	if(!library_data) {
+	if(typeof library_data === "undefined") {
 		return;
 	}
 

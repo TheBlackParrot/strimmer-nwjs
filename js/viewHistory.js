@@ -1,5 +1,5 @@
 function getPlayHistory(callback) {
-	var url = settings.strimmer_host + 'fetch/tracks.php?offset=0&amount=500&sort=added&order=asc&where=history';
+	var url = settings.strimmer_host + 'fetch/tracks.php?offset=0&amount=500&sort=added&order=desc&where=history';
 	$.ajax({
 		type: 'GET',
 		url: url,

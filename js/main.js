@@ -1,10 +1,12 @@
 var querystring = require('querystring');
 var fs = require('fs');
 
+var nwgui = window.require('nw.gui');
+
 var StrimmerAPIKeys = require('./config/strimmer.json');
 var settings = require('./config/config.json');
 
-require('nw.gui').Window.get().showDevTools();
+nw.Window.get().showDevTools();
 
 //var library_data = require('./testdata.json');
 

@@ -12,11 +12,16 @@
 	<link rel="stylesheet" type="text/css" href="css/sideBar.css">
 	<link rel="stylesheet" type="text/css" href="css/mainArea.css">
 	<link rel="stylesheet" type="text/css" href="css/bottomBar.css">
+	<link rel="stylesheet" type="text/css" href="css/dialog.css">
 
 	<script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
 </head>
 
 <body>
+	<div class="dialog_overlay"></div>
+	<div class="dialog">
+	</div>
+
 	<div class="titlebar">
 		<div class="title">
 			<img class="logo" src="images/logo.png" style="height: 24px;"/>
@@ -52,8 +57,8 @@
 					<div id="slideout_button" active="0">
 						<i class="fa fa-caret-right" id="caret_sob"></i>
 					</div>
-					<span class="title">Title</span>
-					<span class="artist">Artist</span>
+					<span class="title"></span>
+					<span class="artist"></span>
 				</div>
 			</div>
 			<div class="lists">
@@ -64,6 +69,8 @@
 				<hr/>
 				<span class="list-item" view="queue"><i class="fa fa-list fa-fw"></i> Play Queue</span>
 				<span class="list-item" view="history"><i class="fa fa-history fa-fw"></i> Play History</span>
+				<hr/>
+				<span class="list-item dialog-item" dialog="add_track"><i class="fa fa-plus fa-fw"></i> Add Track</span>
 			</div>
 		</div>
 
@@ -84,22 +91,23 @@
 		</div>
 
 		<div class="bottom_bar">
-			<span id="elapsed">10:00</span>
+			<span id="elapsed">0:00</span>
 			<div id="bar">
 				<div id="bar_elapsed">
 				</div>
 			</div>
-			<span id="length">12:00</span>
+			<span id="length">0:00</span>
 		</div>
 	</div>
 
-	<script type="text/javascript" src="js/window.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/window.js"></script>
 	<script type="text/javascript" src="js/live.js"></script>
 	<script type="text/javascript" src="js/user.js"></script>
 	<script type="text/javascript" src="js/views.js"></script>
 	<script type="text/javascript" src="js/scrolling.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
 
 	<script type="text/javascript" src="js/viewQueue.js"></script>
 	<script type="text/javascript" src="js/viewHistory.js"></script>
