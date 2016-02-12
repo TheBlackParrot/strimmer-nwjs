@@ -78,13 +78,17 @@ $("#queue, #unqueue").on("click",function(event) {
 	var current_mode = element.attr("id");
 
 	if(!parseInt(element.attr("disabled"))) {
+		var track = findTrackByID(trackid);
+
 		if(current_mode == "unqueue") {
 			queueStrimmerTrack("unqueue", trackid, function(){
 				element.attr("id", "queue");
+				addNotification("Unqueued " + track.TITLE);
 			});
 		} else {
 			queueStrimmerTrack("queue",trackid,function(){
 				element.attr("id", "unqueue");
+				addNotification("Queued " + track.TITLE);
 			});
 		}
 	}

@@ -51,6 +51,10 @@ $(".add_track_button").on("click", function(event) {
 					var new_data = data.RETURN_DATA[0];
 					library_data.unshift(new_data);
 
+					var notif_data;
+					notif_data = new_data.ARTIST + " - " + new_data.TITLE + " [" + new_data.STRIMMER_ID + "] was added successfully";
+					addNotification(notif_data);
+
 					if(active_view == "library") {
 						addTableRows(data.RETURN_DATA, true);
 					}

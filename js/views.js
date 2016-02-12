@@ -12,6 +12,9 @@ function clearList() {
 	});
 }
 
+var good_response_codes = ["302", "200", "201", "203"];
+var service_response_codes = ["500", "502", "503", "504"];
+
 function addTableRows(data, inverse) {
 	var table = $(".main_table");
 	var rows = $(".main_table tr");
@@ -32,7 +35,21 @@ function addTableRows(data, inverse) {
 		}
 
 		row.append("<td>" + pos + "</td>");
-		row.append("<td>" + entry.TITLE + "</td>");
+
+		var title_cell = $("<td></td>");
+		var title_data = entry.TITLE;
+		if(entry.LAST_API_RESPONSE_CODE != null) {
+			if(good_response_codes.indexOf(entry.LAST_API_RESPONSE_CODE) == -1) {
+				if(service_response_codes.indexOf(entry.LAST_API_RESPONSE_CODE) != -1) {
+					title_data = '<i class="fa fa-exclamation-triangle" style="color: #FFEB3B;"></i> ' + entry.TITLE;
+				} else {
+					title_data = '<i class="fa fa-times-circle" style="color: #F44336;"></i> ' + entry.TITLE;
+				}
+			}
+		}
+		title_cell.html(title_data);
+		row.append(title_cell);
+		
 		row.append("<td>" + entry.ARTIST + "</td>");
 
 		row.attr("trackid", entry.STRIMMER_ID);

@@ -50,10 +50,10 @@ function getRecentTracks(count_only, callback) {
 	}
 
 	if(count_only) {
-		var url = settings.strimmer_host + 'fetch/recent.php?time=' + encodeURI(last_new_check-1) + '&count_only=1';
+		var url = settings.strimmer_host + 'fetch/recent.php?time=' + encodeURI(last_new_check) + '&count_only=1';
 		var dataType = "text";
 	} else {
-		var url = settings.strimmer_host + 'fetch/recent.php?time=' + encodeURI(last_new_check-1) + '&order=asc';
+		var url = settings.strimmer_host + 'fetch/recent.php?time=' + encodeURI(last_new_check) + '&order=asc';
 		var dataType = "json";
 	}
 
@@ -133,10 +133,17 @@ function checkForNewTracks() {
 
 function getNewTracks() {
 	getRecentTracks(0, function(data) {
+		var notif_data = "<strong>The following track(s) were added to the library:</strong><br/>";
 		data.RETURN_DATA.forEach(function(entry) {
 			library_data.unshift(entry);
+			notif_data += entry.ARTIST + " - " + entry.TITLE + " [" + entry.STRIMMER_ID + "]";
 		});
-		addTableRows(data.RETURN_DATA, 1);
+		notif_data += "<br/>";
+		addNotification(notif_data);
+		
+		if(active_view == "library") {
+			addTableRows(data.RETURN_DATA, 1);
+		}
 
 		last_new_check = unixTimestamp() - time_offset;
 	});

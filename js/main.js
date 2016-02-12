@@ -21,6 +21,12 @@ function unixTimestamp() {
 	return Date.now() / 1000 | 0;
 }
 
+function findTrackByID(trackid) {
+	return $.grep(library_data, function(entry) {
+		return entry.STRIMMER_ID == trackid;
+	})[0];
+}
+
 var time_offset = 0;
 function getStrimmerLibrary(callback) {
 	var url = settings.strimmer_host + 'fetch/tracks.php';
