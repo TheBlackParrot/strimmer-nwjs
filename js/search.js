@@ -1,6 +1,6 @@
 function updateSearchTerm(search_term) {
 	if(!search_term) {
-		resetList(active_data);
+		switchView(active_view);
 		return;
 	}
 

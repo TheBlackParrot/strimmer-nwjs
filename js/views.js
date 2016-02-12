@@ -82,15 +82,10 @@ function resetList(data) {
 	active_data = data;
 }
 
-var active_view = "library";
-$('.list-item:not(.dialog-item)').on("click", function() {
-	$(".list-item").removeClass("active_row");
-	$(this).addClass("active_row");
-
-	var view = $(this).attr("view");
-	console.log("Switched to " + view);
-
+function switchView(view) {
 	active_view = view;
+	$(".main_table_wrapper").scrollTop(0);
+	$("#search_field").val("");
 
 	switch(view) {
 		case "library":
@@ -129,4 +124,15 @@ $('.list-item:not(.dialog-item)').on("click", function() {
 	}
 
 	resetList(active_data);
+}
+
+var active_view = "library";
+$('.list-item:not(.dialog-item)').on("click", function() {
+	$(".list-item").removeClass("active_row");
+	$(this).addClass("active_row");
+
+	var view = $(this).attr("view");
+	console.log("Switched to " + view);
+
+	switchView(view);
 });

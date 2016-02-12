@@ -52,7 +52,7 @@ $(".add_track_button").on("click", function(event) {
 					library_data.unshift(new_data);
 
 					var notif_data;
-					notif_data = new_data.ARTIST + " - " + new_data.TITLE + " [" + new_data.STRIMMER_ID + "] was added successfully";
+					notif_data = '<i class="fa fa-info-circle .info_symbol"></i>' + new_data.ARTIST + " - " + new_data.TITLE + " [" + new_data.STRIMMER_ID + "] was added successfully";
 					addNotification(notif_data);
 
 					if(active_view == "library") {

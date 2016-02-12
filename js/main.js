@@ -92,6 +92,27 @@ function updateTrackInfo(data, mode) {
 	if($(".current_track").attr("trackid") == data.STRIMMER_ID) {
 		return;
 	}
+
+	var good_response_codes = ["302", "200", "201", "203"];
+	var service_response_codes = ["500", "502", "503", "504"];
+
+	var notif_data;
+	if(data.LAST_API_RESPONSE_CODE != null) {
+		if(good_response_codes.indexOf(data.LAST_API_RESPONSE_CODE) == -1) {
+			if(service_response_codes.indexOf(data.LAST_API_RESPONSE_CODE) != -1) {
+				notif_data = '<i class="fa fa-exclamation-triangle warning_n" style="color: #FFEB3B; font-size: 20pt;"></i><strong>' + data.TITLE + '</strong>';
+				notif_data += " has been tagged with a service issue code (" + data.LAST_API_RESPONSE_CODE + ")<br/><br/>";
+				notif_data += "<strong>This track may continue playing in the future and will still act normal.</strong>";
+			} else {
+				notif_data = '<i class="fa fa-times-circle warning_e" style="color: #F44336; font-size: 20pt;"></i><strong>' + data.TITLE + '</strong>';
+				notif_data += " has been tagged with a service error code (" + data.LAST_API_RESPONSE_CODE + ")<br/><br/>";
+				notif_data += "<strong>This track can no longer be played until the error is fixed, or a replacement is added.</strong>";
+			}
+		}
+	}
+	if(typeof notif_data !== "undefined") {
+		addNotification(notif_data);
+	}
 	
 	var art = data.ART_PERMALINK;
 

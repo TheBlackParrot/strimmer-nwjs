@@ -83,12 +83,12 @@ $("#queue, #unqueue").on("click",function(event) {
 		if(current_mode == "unqueue") {
 			queueStrimmerTrack("unqueue", trackid, function(){
 				element.attr("id", "queue");
-				addNotification("Unqueued " + track.TITLE);
+				addNotification('<i class="fa fa-info-circle .info_symbol"></i>' + "Unqueued " + track.TITLE);
 			});
 		} else {
 			queueStrimmerTrack("queue",trackid,function(){
 				element.attr("id", "unqueue");
-				addNotification("Queued " + track.TITLE);
+				addNotification('<i class="fa fa-info-circle .info_symbol"></i>' + "Queued " + track.TITLE);
 			});
 		}
 	}
