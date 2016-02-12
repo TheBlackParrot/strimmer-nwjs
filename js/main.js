@@ -257,3 +257,7 @@ $(document).on("click", function(event) {
 
 	updateTrackInfo(track, "live");
 });
+
+$(".volume_slider").on("input", function() {
+	stream.volume = $(this).val()/100;
+});
