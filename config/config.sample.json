@@ -1,3 +1,8 @@
 {
-	"strimmer_host": "https://strimmer.example.com/api/1.0/"
+	"strimmer_host": "https://strimmer.example.com/api/1.0/",
+	"stream": {
+		"enabled": false,
+		"url": "http://radio.example.us/ogg96.ogg",
+		"volume": 0.5
+	}
 }
